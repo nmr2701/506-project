@@ -20,8 +20,7 @@ How you plan on modeling the data (e.g. clustering, fitting a linear model, deci
   -  Multivariate regression of abundance using multiple predictors
 
 
-** Edit **
-
+**Edit**
 https://raw.githubusercontent.com/zoey-rw/soil_microbe_GEMs/refs/heads/master/comets_shinyapp_example/species_abundance_filt.csv
 
 there is a bunch of data to use all in
