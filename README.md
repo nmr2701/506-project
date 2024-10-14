@@ -20,6 +20,16 @@ How you plan on modeling the data (e.g. clustering, fitting a linear model, deci
   -  Multivariate regression of abundance using multiple predictors
 
 
+** Edit **
+
+https://raw.githubusercontent.com/zoey-rw/soil_microbe_GEMs/refs/heads/master/comets_shinyapp_example/species_abundance_filt.csv
+
+there is a bunch of data to use all in
+
+https://github.com/zoey-rw/soil_microbe_GEMs/tree/master/comets_shinyapp_example
+
+
+
 How do you plan on visualizing the data? (e.g. interactive t-SNE plot, scatter plot of feature x vs. feature y).
   - Scatter plots (pH and temp as x) (abundance as y), filter by biome
   - 
