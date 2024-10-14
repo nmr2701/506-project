@@ -20,6 +20,14 @@ How you plan on modeling the data (e.g. clustering, fitting a linear model, deci
   -  Multivariate regression of abundance using multiple predictors
 
 
+How do you plan on visualizing the data? (e.g. interactive t-SNE plot, scatter plot of feature x vs. feature y).
+  - Scatter plots (pH and temp as x) (abundance as y), filter by biome
+  - 
+What is your test plan? (e.g. withhold 20% of data for testing, train on data collected in October and test on data collected in November, etc.).
+ - Standard 80 - 20 split on available data
+
+
+
 **Edit**
 https://raw.githubusercontent.com/zoey-rw/soil_microbe_GEMs/refs/heads/master/comets_shinyapp_example/species_abundance_filt.csv
 
@@ -27,10 +35,3 @@ there is a bunch of data to use all in
 
 https://github.com/zoey-rw/soil_microbe_GEMs/tree/master/comets_shinyapp_example
 
-
-
-How do you plan on visualizing the data? (e.g. interactive t-SNE plot, scatter plot of feature x vs. feature y).
-  - Scatter plots (pH and temp as x) (abundance as y), filter by biome
-  - 
-What is your test plan? (e.g. withhold 20% of data for testing, train on data collected in October and test on data collected in November, etc.).
- - Standard 80 - 20 split on available data
