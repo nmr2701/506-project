@@ -3,13 +3,16 @@ from pymongo import MongoClient
 from flask import Flask
 from flask_cors import CORS
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
 
+load_dotenv()
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}})
 
 # Initialize MongoDB client
-client = MongoClient('mongodb+srv://ramchandaninikhil01:zJ2LbWEugkYjdxwu@organism-data.hsllj.mongodb.net/?retryWrites=true&w=majority&appName=organism-data')
+client = MongoClient(os.getenv('MONGODB_URI'))
 db = client['data']  # Replace with your database name
 collection = db['merged']  # Replace with your collection name
 
