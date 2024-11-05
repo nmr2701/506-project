@@ -48,3 +48,12 @@ we aimed to predict the abundance of specific microbial species based on environ
 Using this merged data, we trained a linear regression model, splitting the data with an 80-20 train-test ratio. After training the model, we evaluated its performance using Mean Squared Error (MSE) and R-squared (R²) metrics. The model produced a low MSE of 1.21x10^-8.The R-squared value was only 0.0077.
 
 These results suggest that a simple linear regression model with pH and temperature as predictors lacks the complexity needed to capture the underlying patterns in abundance. Given the low R-squared value, it's clear that other environmental or biological factors are likely influencing abundance in ways our model cannot capture with these two predictors alone. Moving forward, we can either explore adding more relevant features to improve the model’s predictive power or try alternative models, such as polynomial regression or regularized linear models (such as gaussian process regression), to better capture complex relationships within the data.
+
+
+
+Next Steps: 
+
+As mentioned above, our model doesn’t perform well hence we will keep experimenting with different models/distributions to match patterns of abundance. Moreover, we have started to notice some features that have quite a lot of impact to the abundance of an organism. However, we haven’t been able to incorporate these at this time. Some examples of these features are the biome the organism is from and the pH preference and temperature preference.
+
+In addition to this, we are currently working on a web app to be able to eventually visualise all our findings 
+
