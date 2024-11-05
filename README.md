@@ -35,3 +35,13 @@ there is a bunch of data to use all in
 
 https://github.com/zoey-rw/soil_microbe_GEMs/tree/master/comets_shinyapp_example
 
+
+
+midterm report:
+
+predictive model:
+we aimed to predict the abundance of specific microbial species based on environmental factors, using pH and temperature as primary predictors. To achieve this, we merged two datasets: one containing environmental preferences for various species and another with abundance data, filtered to align through a shared species identifier. After merging, we selected the columns pH_preference, temperature_preference, and percentage (abundance) to serve as features and target variables.
+
+Using this merged data, we trained a linear regression model, splitting the data with an 80-20 train-test ratio. After training the model, we evaluated its performance using Mean Squared Error (MSE) and R-squared (R²) metrics. The model produced a low MSE of 1.21x10^-8.The R-squared value was only 0.0077.
+
+These results suggest that a simple linear regression model with pH and temperature as predictors lacks the complexity needed to capture the underlying patterns in abundance. Given the low R-squared value, it's clear that other environmental or biological factors are likely influencing abundance in ways our model cannot capture with these two predictors alone. Moving forward, we can either explore adding more relevant features to improve the model’s predictive power or try alternative models, such as polynomial regression or regularized linear models (such as gaussian process regression), to better capture complex relationships within the data.
