@@ -49,6 +49,7 @@ Using this merged data, we trained a linear regression model, splitting the data
 
 These results suggest that a simple linear regression model with pH and temperature as predictors lacks the complexity needed to capture the underlying patterns in abundance. Given the low R-squared value, it's clear that other environmental or biological factors are likely influencing abundance in ways our model cannot capture with these two predictors alone. Moving forward, we can either explore adding more relevant features to improve the model’s predictive power or try alternative models, such as polynomial regression or regularized linear models (such as gaussian process regression), to better capture complex relationships within the data.
 
+<img width="580" alt="image" src="https://github.com/user-attachments/assets/e1cb8641-b6dd-41da-9888-a067cb8c5784">
 
 
 Next Steps: 
