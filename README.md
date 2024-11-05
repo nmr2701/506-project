@@ -37,7 +37,10 @@ https://github.com/zoey-rw/soil_microbe_GEMs/tree/master/comets_shinyapp_example
 
 
 
-midterm report:
+Midterm Report:
+
+Data Proccessing:
+The data preprocessing starts with loading organism abundance and environmental data from 'species_abundance_filt.csv' and 'organism_data_to_subset.csv'. These datasets are merged on matching species identifiers. Next, we find some relevant features like soil temperature, pH and moisture and select them. Duplicates are then removed and we fill missing values with mean values. The data is then split into 70% training and 30% testing sets. Finally, we use StandardScaler to transform the features to zero-mean and unit-variance distributions for better model performance later on.
 
 predictive model:
 we aimed to predict the abundance of specific microbial species based on environmental factors, using pH and temperature as primary predictors. To achieve this, we merged two datasets: one containing environmental preferences for various species and another with abundance data, filtered to align through a shared species identifier. After merging, we selected the columns pH_preference, temperature_preference, and percentage (abundance) to serve as features and target variables.
