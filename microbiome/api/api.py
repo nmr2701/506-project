@@ -14,6 +14,9 @@ db = client['data']  # Replace with your database name
 collection = db['merged']  # Replace with your collection name
 
 
+@app.route('/')
+def home():
+    return "Welcome to the Organism Data API. Use /species to get the species list."
 
 @app.route('/species')
 def get_species_of_interest():
