@@ -1,6 +1,6 @@
 # 506-project
 
-Midterm Report Video Link: https://www.youtube.com/watch?v=y3bRpkjZuzQ
+Midterm Report Video Link: https://youtu.be/WgToNAL0_b0
 
 Project purpose: The purpose of the project is to create an application that would allow researchers in Biology at Boston University to share findings in Microbiomes from their research through a web application. The web application will allow users to search for data based on filters and display a series of informational, statistical inferences and plots which would deliver insights on the underlying data.
 
