@@ -70,6 +70,3 @@ These results suggest that a simple linear regression model with pH and temperat
 Next Steps: 
 
 As mentioned above, our model doesn’t perform well hence we will keep experimenting with different models/distributions to match patterns of abundance. Moreover, we have started to notice some features that have quite a lot of impact to the abundance of an organism. However, we haven’t been able to incorporate these at this time. Some examples of these features are the biome the organism is from and the pH preference and temperature preference.
-
-In addition to this, we are currently working on a web app to be able to eventually visualise all our findings 
-
