@@ -2,9 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { Autocomplete, TextField, Slider } from '@mui/material';
+import { Autocomplete, TextField, 
+  // Slider 
+} from '@mui/material';
 import Graph from './graph'; // Import the Graph component
-
+import websiteRenderImage from './assets/website_render_img.png';
 
 function App() {
 
@@ -70,7 +72,7 @@ function App() {
     <>
 
     <h1>CS 506: Predicting Ogranism Abbundance based of pH & temperature</h1>
-
+      <div style={{ marginBottom: '5%' }}>
       <Autocomplete
         options={organsims}
         getOptionLabel={(option) => option}
@@ -78,6 +80,9 @@ function App() {
         onChange={(event, newValue) => setSelectedOrganism(newValue)}
         renderInput={(params) => <TextField {...params} label="Select Organism" variant="outlined" />}
       />
+      </div>
+     {/* Render the First component */}
+     <img src={websiteRenderImage} alt="Website Render" style={{marginLeft: '25%',  maxWidth: '50%', height: 'auto', marginBottom: '20px' }} />
 
      {/* Render the Graph component */}
      {iThData ? <Graph data={iThData} /> : <p>No data available for the selected organism or index.</p>}
