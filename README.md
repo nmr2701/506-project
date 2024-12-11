@@ -115,10 +115,10 @@ While a unified model might overlook the intricacies of individual species, it o
 - Finally, we experimented with a Neural Network. Neural networks are powerful tools for capturing highly complex relationships in large datasets, and their ability to learn non-linear patterns can provide valuable insights. The architecture included three hidden layers with 256, 128, and 64 neurons respectively, ReLU activations, dropout for regularization, and batch normalization to stabilize training. However, the neural network did not outperform XGBoost in this case. Training the neural network required more data and computational power, and despite our efforts to tune the model, its predictions were notably flat and failed to capture the true patterns in the data. This indicated an underfitting issue, where the model struggled to learn the complexities of the target variable. Additionally, our lack of experience with neural networks may have hindered our ability to leverage their full potential. Despite these challenges, the neural network demonstrated some ability to learn non-linearities in the data, but it was ultimately less efficient and effective for this problem compared to XGBoost, which remained the superior choice in terms of performance and computational efficiency.
 
   ### General Neural Network Model
-  ![neural general](general_neural_network.png)
+  ![neural general](images/general_neural_network.png)
 
   ### Organism Specific Neural Network Model
-  ![specific_neural](specific_organism_neural_network.png)
+  ![specific_neural](images/specific_organism_neural_network.png)
   
 ## Model Comparison and Evaluation
 
