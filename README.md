@@ -95,7 +95,7 @@ We approached model creation with two hypotheses: building a general model for a
  ![Gaussian Model](images/gaussianreg.png)
 ## Random Forest:
 - Random Forest was a strong contender due to its ability to handle complex datasets and capture non-linear relationships without requiring explicit feature engineering. It performs well by averaging multiple decision trees, reducing overfitting. Random Forest was able to capture interactions between features and was more robust compared to linear models, but it was still outperformed by more advanced models like XGBoost.
-
+![Random Forest](images/randomforest.png)
 
 Initially, our focus was on creating organism-specific models, aiming to capture the unique abundance patterns for each species. However, despite extensive experimentation with feature engineering and various modeling approaches, the metric scores for these models consistently fell short, showing little to no improvement regardless of adjustments. A significant limitation stemmed from the small size of the datasets, with most organism-specific models based on only around 1,000 rows of data—a volume insufficient to capture the complexity of abundance predictions. This prompted us to explore a unified modeling approach, hypothesizing that combining data across organisms might uncover overarching trends and improve predictive accuracy by leveraging a larger, more diverse dataset.
 
