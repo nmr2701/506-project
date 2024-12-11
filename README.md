@@ -123,8 +123,10 @@ The feature importance graph further clarified the role of each feature in the m
 ![predicted vs actual](images/PredictedVsActual3.png)
 ![predicted vs actual](images/PredictedVsActual4.png)
 ![predicted vs actual](images/PredictedVsActual5.png)
-## Overall results and conclusion (+ evidence supporting these)
+## Overall results and conclusion
 In conclusion, we successfully integrated and analyzed two datasets to explore the relationship between environmental factors and microbial species abundance. Through a detailed data science approach, including exploration, cleaning, and feature engineering, we ensured that the datasets were properly prepared for modeling. Our exploration uncovered key patterns and informed the creation of features that enhanced the models' ability to capture meaningful relationships in the data.
 Among the various models tested, XGBoost emerged as the best-performing model for predicting species abundance, demonstrating superior accuracy and robustness compared to simpler approaches like Linear Regression and more complex ones like Neural Networks. By employing hyperparameter tuning with RandomizedSearchCV, we further optimized the XGBoost model, achieving strong performance metrics and insights into the interactions between environmental variables and microbial species.
+## Improvements
 The results demonstrate the potential for leveraging predictive modeling to better understand how environmental factors influence microbial populations.
+We could have improved our approach by incorporating additional environmental factors, such as climate or soil nutrient data, to provide a more comprehensive analysis. Using a more systematic feature selection process could have enhanced model interpretability and reduced computational overhead. Exploring advanced techniques, such as stacking models or gradient-boosted random forests, might have further improved performance. Additionally, validating the model on independent datasets would have tested its generalizability and real-world applicability. These refinements could have made our analysis more robust and impactful.
 
