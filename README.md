@@ -17,9 +17,10 @@ species_abundance_filt.csv: Contains abundance data for various microbial specie
 organism_data_to_subset.csv: Provides additional environmental preferences for the organisms, such as pH and temperature. 
 We're utilizing 2 datasets in our project. The first dataset gives us a breakdown of the different microbial species in various samples. We get to see which species are most common, which are rare, and how they're distributed. 
 The second dataset adds more context. We get information about the environment, like soil temperature and moisture levels, and where the samples were taken. This helps us understand how microbes interact with their surroundings. 
+
 ## Data Science Approach
 
-## 1) Data Exploration:
+**1) Data Exploration:**
 
 Before building our model, we thoroughly explored the data to understand its structure, distribution, and potential challenges. We began by inspecting the datasets to examine their size, structure, and types of features, identifying numerical and categorical variables. We checked for missing values, visualizing them. This phase also helped uncover opportunities for feature engineering, such as combining or transforming features, while redundant or irrelevant features were flagged for removal. For classification tasks, we analyzed the distribution of the target variable to identify any class imbalances and considered appropriate strategies to address them. Exploratory visualizations, including scatter plots and bar charts, were used to uncover patterns and trends. These insights informed our preprocessing and modeling steps, ensuring a robust approach to addressing potential data challenges.
 
@@ -35,13 +36,13 @@ Merging Data: Had to merge the datasets since we needed the ‘percentage’ col
 
 Feature engineering was a crucial step in enhancing the model's ability to capture meaningful relationships within the data. The process involved creating new features, transforming existing ones, and extracting valuable information that could improve model performance. Here's a detailed explanation of the feature engineering steps undertaken:
 Interaction Features:
-- We created interaction terms by combining variables that may have a combined effect on the target variable. For example, temp_soilMoisture was derived by multiplying temperature_preference and soilMoisture, as we hypothesized that the interaction between temperature preference and moisture levels could affect species abundance.
+- We created interaction terms by combining variables that may have a combined effect on the target variable. For example, **temp_soilMoisture** was derived by multiplying **temperature_preference** and **soilMoisture**, as we hypothesized that the interaction between temperature preference and moisture levels could affect species abundance.
 Product of pH Variables:
-To capture the relationship between different pH measurements, we created the soilInWaterpH_soilInCaClpH feature by multiplying the soilInWaterpH and soilInCaClpH variables. This interaction may provide insights into how these two pH levels collectively influence the abundance of species in the soil.
+To capture the relationship between different pH measurements, we created the **soilInWaterpH_soilInCaClpH** feature by multiplying the **soilInWaterpH** and **soilInCaClpH** variables. This interaction may provide insights into how these two pH levels collectively influence the abundance of species in the soil.
 Squared Features:
-- To capture non-linear effects, we squared certain continuous variables. For instance, temperature_preference_squared and pH_preference_squared were introduced to help the model recognize non-linear relationships between environmental preferences and species abundance. Similarly, squaring soilMoisture helped to account for any non-linear impact of moisture on species presence.
+- To capture non-linear effects, we squared certain continuous variables. For instance, **temperature_preference_squared** and **pH_preference_squared** were introduced to help the model recognize non-linear relationships between environmental preferences and species abundance. Similarly, squaring soilMoisture helped to account for any non-linear impact of moisture on species presence.
 Geographical Features:
-- We added geographical information by calculating the absolute values of latitude and longitude to create distance_from_equator and distance_from_prime_meridian. These features help account for environmental factors tied to a species’ location, such as climate patterns that may influence their abundance.
+- We added geographical information by calculating the absolute values of latitude and longitude to create **distance_from_equator** and **distance_from_prime_meridian**. These features help account for environmental factors tied to a species’ location, such as climate patterns that may influence their abundance.
 Species-Specific Averages:
 - We calculated the average soil temperature (avg_soilTemp_by_species) and pH (avg_ph_by_species) for each species. These values, mapped to each row, provide context on the typical environmental conditions for each species, allowing the model to recognize the conditions under which a species is most abundant.
 Standard Deviation from Preferences:
@@ -53,16 +54,22 @@ These engineered features allowed the model to better understand complex interac
 ## 5) Modeling 
 
 In this project, we experimented with several machine learning models to find the best approach for predicting species abundance based on environmental and geographical factors. The models we tried included Logistic Regression, Linear Regression, Gaussian Mixture Model (GMM), Random Forest, XGBoost, and a Neural Network. Each model was evaluated based on its performance and suitability for the dataset, and we adjusted the features and hyperparameters to optimize the results.
+
 ## Linear Regression:
 - Linear Regression was used as the baseline simple model for predicting species abundance, with the assumption that there might be a linear relationship between the features and the target. The model performed reasonably well, but it struggled to capture more complex, non-linear relationships within the data, particularly given the interactions and squared terms that were part of our feature engineering.
+  
 ## Polynomial Regression:
 - To better capture the non-linear relationships in the data, we extended Linear Regression by using Polynomial Regression. This method allows for the fitting of polynomial terms to the features, enabling the model to learn more complex patterns. While Polynomial Regression improved the model's ability to capture these non-linearities, it still faced limitations. The model was prone to overfitting, especially when higher-degree polynomials were used, and it did not outperform other more advanced models, such as Random Forest or XGBoost.
+  
 ## Gaussian Mixture Model (GMM):
 - Gaussian Mixture Models were explored to see if there were latent subgroups within the data that could explain the variability in species abundance. GMM is a probabilistic model that assumes the data is generated from a mixture of several Gaussian distributions. However, it was not able to capture the underlying patterns as effectively as other models, and its performance was limited due to the continuous nature of the target variable and the complexity of the dataset.
+  
 ## Random Forest:
 - Random Forest was a strong contender due to its ability to handle complex datasets and capture non-linear relationships without requiring explicit feature engineering. It performs well by averaging multiple decision trees, reducing overfitting. Random Forest was able to capture interactions between features and was more robust compared to linear models, but it was still outperformed by more advanced models like XGBoost.
+  
 ## XGBoost:
 - XGBoost emerged as one of the most powerful models for this project. As a gradient-boosting algorithm, it excels at capturing complex non-linear relationships and interactions between features, making it highly effective for regression tasks with structured data. After using RandomizedSearchCV for hyperparameter tuning, XGBoost achieved the best results, showing superior performance in terms of the R² score and Mean Squared Error (MSE) compared to other models. The ability to tune multiple hyperparameters, such as tree depth, learning rate, and subsample ratio, further enhanced the model’s performance.
+  
 ##Neural Network:
 - Finally, we experimented with a Neural Network. While neural networks are powerful for capturing highly complex relationships in large datasets, the neural network did not outperform XGBoost in this case. Training the neural network also required more data and computational power, and it was more prone to overfitting without careful tuning of regularization parameters. Despite this, it provided insights into the model's ability to learn non-linearities, but ultimately it was less efficient for this particular problem compared to XGBoost.
 
