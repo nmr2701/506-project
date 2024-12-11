@@ -93,7 +93,7 @@ The feature importance plot allowed us to visualize which engineered features (e
 ## Experimenting with New Features:
 - As part of the evaluation process, we experimented with adding and removing features to assess their impact on model performance. For example, after observing the feature importance scores, we decided to experiment with new engineered features like the interaction term between soil pH and temperature preferences, which seemed to offer a meaningful relationship with species abundance.
 We also explored variations in the distance-based features (such as distance_from_equator and distance_from_prime_meridian) to capture more detailed geographical patterns. These modifications aimed to improve the model by providing it with more relevant data that could better explain variations in the target variable.
-## - Visualization of Results:
+## Visualization of Results:
 Finally, we visualized the results of the model’s predictions against the true values to assess how well the model performed in real-world scenarios. A scatter plot was generated to show the relationship between the actual and predicted abundance values, offering a clear indication of the model's accuracy.
 The feature importance graph further clarified the role of each feature in the model, reinforcing the value of specific features and supporting decisions about which features to retain or modify in future iterations of the model.
 ## Overall results and conclusion (+ evidence supporting these)
