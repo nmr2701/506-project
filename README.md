@@ -41,7 +41,8 @@ Loading Data: The two datasets are loaded and merged based on a shared species i
 Handling Missing Values: Missing data is addressed by imputing mean values for numerical columns to avoid disrupting the model training process.
 
 
-Merging Data: Had to merge the datasets since we needed the ‘percentage’ column from the abundance data as the target for our modeling. Rows with duplicate entries are removed to ensure data consistency when merging the datasets. Initially, we didn’t do this correctly for the midterm report therefore the shape of the merged file was not what we expected. It was significantly bigger. We have now removed the duplicates to ensure that the merged file is now the same size as the abundance data file.
+Merging Data: Had to merge the datasets since we needed the ‘percentage’ column from the abundance data as the target for our modeling. Rows with duplicate entries are removed to ensure data consistency when merging the datasets. Initially, we didn’t do this correctly for the midterm report therefore the shape of the merged file was not what we expected. It was significantly bigger. We have now removed the duplicates to ensure that the merged file is now the same size as the abundance data file. We also made sure that we removed species where there was not enough data for it to be impactful in the model.
+![dist of entries](images/distributionOfEntries.png)
 
 ## 4) Feature Engineering 
 
