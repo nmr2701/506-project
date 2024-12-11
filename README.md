@@ -2,11 +2,11 @@
 
 Code (instructions, dependencies, reproducibility, tests etc)
 1) git clone (https://github.com/nmr2701/506-project)
-2) install dependencies: make install
-3) run the entire main pipeline.ipynb to see data cleaning and model creation as well as visuals with make run 
+2) install dependencies: `make install`
+3) run the entire main pipeline.ipynb to see data cleaning and model creation as well as visuals with `make run`
 
-  (abundance data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/species_abundance_filt.csv
-  (organism data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/intermediate_data/organism_data_to_subset.csv
+Abundance data: https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/species_abundance_filt.csv
+Organism data: https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/intermediate_data/organism_data_to_subset.csv
 
 ## Approach taken to reach goals:
 This project followed a standard data science process—data exploration, cleaning, modeling, and evaluation—to ensure robustness, reliability, and alignment with the defined goals. During data exploration, we identified patterns and inconsistencies, and the preprocessing steps, such as handling missing values and feature engineering, were chosen to improve model performance. We used a 70/30 training-testing split and cross-validation for model generalizability, evaluating performance with metrics like R² and RMSE for regression tasks. Reproducibility was prioritized with well-documented code, a fixed random state, and visualizations to validate assumptions.
