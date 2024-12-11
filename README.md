@@ -8,11 +8,10 @@ Code (instructions, dependencies, reproducibility, tests etc)
   (abundance data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/species_abundance_filt.csv
   (organism data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/intermediate_data/organism_data_to_subset.csv
 
-## Validity of approach taken to reach goals:
-The approach taken in this project was designed to ensure robustness, reliability, and alignment with the defined goals. By following the standard data science process—data exploration, cleaning, modeling, and evaluation—we systematically addressed potential challenges while maintaining scientific rigor. During the data exploration phase, we identified patterns, correlations, and inconsistencies, ensuring a thorough understanding of the dataset before proceeding. The preprocessing steps, including handling missing values, scaling, and feature engineering, were carefully chosen to enhance model performance without introducing bias.
-For modeling, we selected techniques appropriate to the nature of the data and the problem, leveraging well-established statistical and machine learning methods. To ensure validity, we split the data into training and testing subsets, maintaining a 70/30 split, and used cross-validation to evaluate model generalizability. Metrics such as accuracy, precision, recall, and F1-score (or R² and RMSE for regression tasks) were used to assess performance, ensuring alignment with the project's objectives.
-Furthermore, reproducibility was a key consideration throughout the project. Code and workflows were well-documented, enabling others to replicate the process. The use of a fixed random state ensured consistent results across runs, while the application of visualizations helped validate assumptions and interpret results. By adhering to these best practices, the approach was not only valid but also transparent and adaptable, supporting the attainment of project goals effectively.
-Data description, relevance and provenance
+## Approach taken to reach goals:
+This project followed a standard data science process—data exploration, cleaning, modeling, and evaluation—to ensure robustness, reliability, and alignment with the defined goals. During data exploration, we identified patterns and inconsistencies, and the preprocessing steps, such as handling missing values and feature engineering, were chosen to improve model performance. We used a 70/30 training-testing split and cross-validation for model generalizability, evaluating performance with metrics like R² and RMSE for regression tasks. Reproducibility was prioritized with well-documented code, a fixed random state, and visualizations to validate assumptions.
+
+## Data description, relevance and provenance
 The datasets used in this project are sourced from pre-existing files available in repositories such as soil_microbe_GEMs. Key files include:
 species_abundance_filt.csv: Contains abundance data for various microbial species.
 organism_data_to_subset.csv: Provides additional environmental preferences for the organisms, such as pH and temperature. 
