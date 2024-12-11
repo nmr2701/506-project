@@ -23,6 +23,17 @@ The second dataset adds more context. We get information about the environment, 
 **1) Data Exploration:**
 
 Before building our model, we thoroughly explored the data to understand its structure, distribution, and potential challenges. We began by inspecting the datasets to examine their size, structure, and types of features, identifying numerical and categorical variables. We checked for missing values, visualizing them. This phase also helped uncover opportunities for feature engineering, such as combining or transforming features, while redundant or irrelevant features were flagged for removal. For classification tasks, we analyzed the distribution of the target variable to identify any class imbalances and considered appropriate strategies to address them. Exploratory visualizations, including scatter plots and bar charts, were used to uncover patterns and trends. These insights informed our preprocessing and modeling steps, ensuring a robust approach to addressing potential data challenges.
+## Some plots to explore the data
+![Abundance vs pH](images/basic_visual_of_organism.png)
+
+![avgVSSpeceies](images/pH_vs_abundance_avgVsSelectedSpecies.png)
+
+![organisms with most data](images/organisms_with_most_data.png)
+
+![temp vs abundance](images/avgAbundanceVsTemp.png)
+
+![abundance vs pH](images/averageAbundanceVsPH.png)
+
 
 ## 2) Data Cleaning:
 
@@ -57,19 +68,19 @@ In this project, we experimented with several machine learning models to find th
 
 ## Linear Regression:
 - Linear Regression was used as the baseline simple model for predicting species abundance, with the assumption that there might be a linear relationship between the features and the target. The model performed reasonably well, but it struggled to capture more complex, non-linear relationships within the data, particularly given the interactions and squared terms that were part of our feature engineering.
-  
+  ![Linear Regression Model](images/linearreg.png)
 ## Polynomial Regression:
 - To better capture the non-linear relationships in the data, we extended Linear Regression by using Polynomial Regression. This method allows for the fitting of polynomial terms to the features, enabling the model to learn more complex patterns. While Polynomial Regression improved the model's ability to capture these non-linearities, it still faced limitations. The model was prone to overfitting, especially when higher-degree polynomials were used, and it did not outperform other more advanced models, such as Random Forest or XGBoost.
-  
+  ![Polynomial Regression Model](images/polyreg.png)
 ## Gaussian Mixture Model (GMM):
 - Gaussian Mixture Models were explored to see if there were latent subgroups within the data that could explain the variability in species abundance. GMM is a probabilistic model that assumes the data is generated from a mixture of several Gaussian distributions. However, it was not able to capture the underlying patterns as effectively as other models, and its performance was limited due to the continuous nature of the target variable and the complexity of the dataset.
-  
+ ![Gaussian Model](images/gaussianreg.png)
 ## Random Forest:
 - Random Forest was a strong contender due to its ability to handle complex datasets and capture non-linear relationships without requiring explicit feature engineering. It performs well by averaging multiple decision trees, reducing overfitting. Random Forest was able to capture interactions between features and was more robust compared to linear models, but it was still outperformed by more advanced models like XGBoost.
   
 ## XGBoost:
 - XGBoost emerged as one of the most powerful models for this project. As a gradient-boosting algorithm, it excels at capturing complex non-linear relationships and interactions between features, making it highly effective for regression tasks with structured data. After using RandomizedSearchCV for hyperparameter tuning, XGBoost achieved the best results, showing superior performance in terms of the R² score and Mean Squared Error (MSE) compared to other models. The ability to tune multiple hyperparameters, such as tree depth, learning rate, and subsample ratio, further enhanced the model’s performance.
-  
+  ![XG boost Model](images/xgboost.png)
 ## Neural Network:
 - Finally, we experimented with a Neural Network. Neural networks are powerful tools for capturing highly complex relationships in large datasets, and their ability to learn non-linear patterns can provide valuable insights. The architecture included three hidden layers with 256, 128, and 64 neurons respectively, ReLU activations, dropout for regularization, and batch normalization to stabilize training. However, the neural network did not outperform XGBoost in this case. Training the neural network required more data and computational power, and despite our efforts to tune the model, its predictions were notably flat and failed to capture the true patterns in the data. This indicated an underfitting issue, where the model struggled to learn the complexities of the target variable. Additionally, our lack of experience with neural networks may have hindered our ability to leverage their full potential. Despite these challenges, the neural network demonstrated some ability to learn non-linearities in the data, but it was ultimately less efficient and effective for this problem compared to XGBoost, which remained the superior choice in terms of performance and computational efficiency.
   
@@ -93,9 +104,11 @@ After running the randomized search, we retrieved the best hyperparameters and e
 ## Model Evaluation:
 - After identifying the best hyperparameters through RandomizedSearchCV, we evaluated the optimized model on the test set using R² and Mean Squared Error (MSE). The R² score provided insight into the model’s goodness-of-fit, while MSE quantified the average squared difference between the predicted and actual target values.
 This step validated the performance of the optimized model on data that it had not previously seen, providing a more reliable measure of its predictive capability.
+![model Stats](images/XGboostModelStats.png)
 ## Feature Importance:
 - One of the key benefits of using XGBoost is its ability to provide feature importance scores, which highlight the relative contribution of each feature to the model’s predictions.
 After training the optimized model, we plotted the feature importance to identify which features were most influential in predicting species abundance. Features with higher importance scores were those that the model found to have a stronger relationship with the target variable.
+![feature importance](images/ModelFeatureImportance.png)
 The feature importance plot allowed us to visualize which engineered features (e.g., temp_soilMoisture, avg_soilTemp_by_species, sd_ph_from_preference) had the greatest impact on the model’s predictions, providing useful insights into the dataset's structure.
 ## Experimenting with New Features:
 - As part of the evaluation process, we experimented with adding and removing features to assess their impact on model performance. For example, after observing the feature importance scores, we decided to experiment with new engineered features like the interaction term between soil pH and temperature preferences, which seemed to offer a meaningful relationship with species abundance.
@@ -103,6 +116,13 @@ We also explored variations in the distance-based features (such as distance_fro
 ## Visualization of Results:
 Finally, we visualized the results of the model’s predictions against the true values to assess how well the model performed in real-world scenarios. A scatter plot was generated to show the relationship between the actual and predicted abundance values, offering a clear indication of the model's accuracy.
 The feature importance graph further clarified the role of each feature in the model, reinforcing the value of specific features and supporting decisions about which features to retain or modify in future iterations of the model.
+
+
+![predicted vs actual](images/PredictedVsActual1.png)
+![predicted vs actual](images/PredictedVsActual2.png)
+![predicted vs actual](images/PredictedVsActual3.png)
+![predicted vs actual](images/PredictedVsActual4.png)
+![predicted vs actual](images/PredictedVsActual5.png)
 ## Overall results and conclusion (+ evidence supporting these)
 - results
 
