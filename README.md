@@ -26,13 +26,26 @@ Before building our model, we thoroughly explored the data to understand its str
 ## Some plots to explore the data
 ![Abundance vs pH](images/basic_visual_of_organism.png)
 
+ The actual abundance of Deltaproteobacteria bacterium in relation to soil pH. Each point represents an observed data entry, indicating how the abundance varies across different pH levels.
+
 ![avgVSSpeceies](images/pH_vs_abundance_avgVsSelectedSpecies.png)
+
+The relationship between soil pH and microbial abundance, comparing the average abundance of all species (blue line) with selected species. Each color-coded point represents the abundance of a specific species at a given pH value. The blue line highlights the overall trend, while individual species display variations that deviate from the average.
 
 ![organisms with most data](images/organisms_with_most_data.png)
 
+The most represented microbial species, ranked by the number of entries available for each. The top species, such as Deltaproteobacteria bacterium and Verrucomicrobiaceae bacterium, have the highest counts, indicating they are well-represented and likely to contribute significantly to the modeling and analysis.
+
+
 ![temp vs abundance](images/avgAbundanceVsTemp.png)
 
+
+The relationship between temperature and pathogen abundance. Each point represents a data entry, with the x-axis indicating temperature and the y-axis showing the corresponding abundance. Nost pathogens are observed within a specific temperature range, with decreasing abundance at higher temperatures. This provides insight into how environmental temperature influences pathogen prevalence, which can be important forpredictive modeling and understanding ecological interactions.
+
 ![abundance vs pH](images/averageAbundanceVsPH.png)
+
+
+The relationship between pH levels and pathogen abundance. Each point represents a data entry, with the x-axis indicating pH values and the y-axis representing pathogen abundance. The data shows that pathogen abundance is concentrated within certain pH ranges, with a decline in abundance as pH levels increase
 
 
 ## 2) Data Cleaning:
@@ -141,10 +154,31 @@ The feature importance graph further clarified the role of each feature in the m
 
 
 ![predicted vs actual](images/PredictedVsActual1.png)
+
+
+The predicted and actual abundance of Deltaproteobacteria bacterium relative to soil pH. The red dashed line represents the mean pH preference (5.29) for this organism. The blue points indicate the predicted values, while the green points represent the actual abundance data. The model captures the general trend of abundance peaking near the mean pH preference, though there are some deviations where predictions diverge slightly from the actual values. This suggests the model is effective overall but may have limitations in accurately capturing variations in areas with lower abundance.
+
+
+
 ![predicted vs actual](images/PredictedVsActual2.png)
+
+Compares the predicted and actual abundance of Verrucomicrobiaceae bacterium relative to soil pH. The red dashed line marks the mean pH preference (8.88) for this organism. Blue points represent the predicted values, while green points show the actual abundance. The model effectively captures the abundance trend but shows some variation, particularly at pH levels farther from the organism's preference. 
+
+
 ![predicted vs actual](images/PredictedVsActual3.png)
+
+This plot illustrates the predicted and actual abundance of Hyphomicrobiaceae bacterium relative to soil pH. The red dashed line marks the mean pH preference (5.76) for this bacterium. The blue points represent the predicted abundance, while the green points indicate the actual values. The model aligns well with the general trend of abundance peaking near the preferred pH, although discrepancies appear in regions with sparse data or lower abundance. This indicates the model's effectiveness overall, with minor limitations in predicting outliers.
+
+
 ![predicted vs actual](images/PredictedVsActual4.png)
+
+This plot compares the predicted and actual abundance of Methylobacterium oryzae relative to soil pH. The red dashed line indicates the mean pH preference (8.61) for this species. The blue points represent the predicted abundance, while the green points reflect the actual data. The model shows general alignment near the organism's preferred pH, though the low abundance across most pH ranges highlights the difficulty in accurately modeling rare species distributions. 
+
 ![predicted vs actual](images/PredictedVsActual5.png)
+
+Depicts the predicted and actual abundance of Nonomuraea sp. NEAU-A123 as a function of soil pH. The red dashed line represents the mean pH preference (2.39) for this species. Blue points indicate the predicted abundance, while green points reflect the actual data. The model captures the general trend of abundance near the mean pH preference.
+
+
 ## Overall results and conclusion
 In conclusion, we successfully integrated and analyzed two datasets to explore the relationship between environmental factors and microbial species abundance. Through a detailed data science approach, including exploration, cleaning, and feature engineering, we ensured that the datasets were properly prepared for modeling. Our exploration uncovered key patterns and informed the creation of features that enhanced the models' ability to capture meaningful relationships in the data.
 Among the various models tested, XGBoost emerged as the best-performing model for predicting species abundance, demonstrating superior accuracy and robustness compared to simpler approaches like Linear Regression and more complex ones like Neural Networks. By employing hyperparameter tuning with RandomizedSearchCV, we further optimized the XGBoost model, achieving strong performance metrics and insights into the interactions between environmental variables and microbial species.
