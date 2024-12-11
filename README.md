@@ -66,6 +66,10 @@ These engineered features allowed the model to better understand complex interac
 
 In this project, we experimented with several machine learning models to find the best approach for predicting species abundance based on environmental and geographical factors. The models we tried included Logistic Regression, Linear Regression, Gaussian Mixture Model (GMM), Random Forest, XGBoost, and a Neural Network. Each model was evaluated based on its performance and suitability for the dataset, and we adjusted the features and hyperparameters to optimize the results.
 
+We approached model creation with two hypotheses: building a general model for all organisms versus creating separate models for each organism. The goal was to determine whether a unified approach could capture the overall trends or if organism-specific models would yield better accuracy due to unique behaviors in abundance patterns.
+
+## Organism Specific Models:
+
 ## Linear Regression:
 - Linear Regression was used as the baseline simple model for predicting species abundance, with the assumption that there might be a linear relationship between the features and the target. The model performed reasonably well, but it struggled to capture more complex, non-linear relationships within the data, particularly given the interactions and squared terms that were part of our feature engineering.
   ![Linear Regression Model](images/linearreg.png)
@@ -77,12 +81,30 @@ In this project, we experimented with several machine learning models to find th
  ![Gaussian Model](images/gaussianreg.png)
 ## Random Forest:
 - Random Forest was a strong contender due to its ability to handle complex datasets and capture non-linear relationships without requiring explicit feature engineering. It performs well by averaging multiple decision trees, reducing overfitting. Random Forest was able to capture interactions between features and was more robust compared to linear models, but it was still outperformed by more advanced models like XGBoost.
-  
+
+
+Initially, our focus was on creating organism-specific models, aiming to capture the unique abundance patterns for each species. However, despite extensive experimentation with feature engineering and various modeling approaches, the metric scores for these models consistently fell short, showing little to no improvement regardless of adjustments. A significant limitation stemmed from the small size of the datasets, with most organism-specific models based on only around 1,000 rows of data—a volume insufficient to capture the complexity of abundance predictions. This prompted us to explore a unified modeling approach, hypothesizing that combining data across organisms might uncover overarching trends and improve predictive accuracy by leveraging a larger, more diverse dataset.
+
+While a unified model might overlook the intricacies of individual species, it offers the advantage of pooling data from across organisms, providing a much larger dataset. This approach allows us to identify general patterns and trends in species abundance that might not be apparent when focusing solely on a single species. The increased data volume enhances the model’s ability to capture broader trends, ultimately boosting overall accuracy and making it more robust in predicting species abundance patterns, even if it means sacrificing some of the specific nuances of each organism.
+
+## Models that we trained on both specific organisms and all of the data:
+
 ## XGBoost:
 - XGBoost emerged as one of the most powerful models for this project. As a gradient-boosting algorithm, it excels at capturing complex non-linear relationships and interactions between features, making it highly effective for regression tasks with structured data. After using RandomizedSearchCV for hyperparameter tuning, XGBoost achieved the best results, showing superior performance in terms of the R² score and Mean Squared Error (MSE) compared to other models. The ability to tune multiple hyperparameters, such as tree depth, learning rate, and subsample ratio, further enhanced the model’s performance.
+  ### General XG Boost Model
   ![XG boost Model](images/xgboost.png)
+
+  ### Organism-Specific XG Boost Model
+  ![XG organism](images/specific_organism_XG.png)
+  
 ## Neural Network:
 - Finally, we experimented with a Neural Network. Neural networks are powerful tools for capturing highly complex relationships in large datasets, and their ability to learn non-linear patterns can provide valuable insights. The architecture included three hidden layers with 256, 128, and 64 neurons respectively, ReLU activations, dropout for regularization, and batch normalization to stabilize training. However, the neural network did not outperform XGBoost in this case. Training the neural network required more data and computational power, and despite our efforts to tune the model, its predictions were notably flat and failed to capture the true patterns in the data. This indicated an underfitting issue, where the model struggled to learn the complexities of the target variable. Additionally, our lack of experience with neural networks may have hindered our ability to leverage their full potential. Despite these challenges, the neural network demonstrated some ability to learn non-linearities in the data, but it was ultimately less efficient and effective for this problem compared to XGBoost, which remained the superior choice in terms of performance and computational efficiency.
+
+  ### General Neural Network Model
+  ![neural general](general_neural_network.png)
+
+  ### Organism Specific Neural Network Model
+  ![specific_neural](specific_organism_neural_network.png)
   
 ## Model Comparison and Evaluation
 
@@ -91,7 +113,6 @@ Linear Regression performed well but was limited in its ability to capture compl
 Random Forest was a solid performer but was still outshined by XGBoost in terms of predictive power.
 Neural Networks showed potential but required extensive tuning and did not provide a clear advantage over XGBoost.
 Ultimately, XGBoost was selected as the final model due to its superior performance in predicting species abundance, particularly after optimizing the hyperparameters.
-Another thing we tried with the XGBoost was that we made a generalized model for predicting abundance of all species and then one for individual species
 
 ## 6) Evaluating and tuning the Model 
 In order to optimize the performance of the model, we employed RandomizedSearchCV to perform a hyperparameter search for the final XGBoost model. This method allowed us to efficiently explore a wide range of hyperparameters and identify the best combination to improve model performance.
