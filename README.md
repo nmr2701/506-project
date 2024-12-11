@@ -47,6 +47,10 @@ The relationship between temperature and pathogen abundance. Each point represen
 
 The relationship between pH levels and pathogen abundance. Each point represents a data entry, with the x-axis indicating pH values and the y-axis representing pathogen abundance. The data shows that pathogen abundance is concentrated within certain pH ranges, with a decline in abundance as pH levels increase
 
+![abundance vs TempDev](images/tempdeviationVSabundance.png)
+
+The scatter plot shows the relationship between temperature deviation (difference between observed and preferred temperature) and species abundance. Most data points cluster around lower deviations, indicating the species thrives near its preferred temperature, with fewer outliers at higher deviations where abundance decreases.
+
 
 ## 2) Data Cleaning:
 
@@ -139,7 +143,16 @@ After running the randomized search, we retrieved the best hyperparameters and e
 ## Model Evaluation:
 - After identifying the best hyperparameters through RandomizedSearchCV, we evaluated the optimized model on the test set using R² and Mean Squared Error (MSE). The R² score provided insight into the model’s goodness-of-fit, while MSE quantified the average squared difference between the predicted and actual target values.
 This step validated the performance of the optimized model on data that it had not previously seen, providing a more reliable measure of its predictive capability.
+
+![model Stats](images/InitXGboostStats.png)
+This was our initial statistics for the first XGBoost model as we can see the r^2 value is not to bad but also not to good either. We also observe that the means squared error seems to be on the higher side showing the points are more scattered around the mean abundance.
+
+![model Stats](images/xgbooststats2.png)
+This was our 2nd working of the XGboost model. We can see that the r^2 value has dropped pretty significantly. However, we were able to drop the mean squared error by half making the points closer to the mean abundance.
+
 ![model Stats](images/XGboostModelStats.png)
+This is our current working model's stats. We can see for this one we have a better r^2 value compared to the other 2 variations of the model we tried. We also have the lowest mean squared error value as well for this model. With this we decided this was our best model for predicting the distribution of the abundance of a given species.
+
 ## Feature Importance:
 - One of the key benefits of using XGBoost is its ability to provide feature importance scores, which highlight the relative contribution of each feature to the model’s predictions.
 After training the optimized model, we plotted the feature importance to identify which features were most influential in predicting species abundance. Features with higher importance scores were those that the model found to have a stronger relationship with the target variable.
@@ -180,9 +193,9 @@ Depicts the predicted and actual abundance of Nonomuraea sp. NEAU-A123 as a func
 
 
 ## Overall results and conclusion
-In conclusion, we successfully integrated and analyzed two datasets to explore the relationship between environmental factors and microbial species abundance. Through a detailed data science approach, including exploration, cleaning, and feature engineering, we ensured that the datasets were properly prepared for modeling. Our exploration uncovered key patterns and informed the creation of features that enhanced the models' ability to capture meaningful relationships in the data.
+In conclusion, we were somewhat successfully integrated and analyzed two datasets to explore the relationship between environmental factors and microbial species abundance. Through a detailed data science approach, including exploration, cleaning, and feature engineering, we ensured that the datasets were properly prepared for modeling. Our exploration uncovered key patterns and informed the creation of features that enhanced the models' ability to capture meaningful relationships in the data.
 Among the various models tested, XGBoost emerged as the best-performing model for predicting species abundance, demonstrating superior accuracy and robustness compared to simpler approaches like Linear Regression and more complex ones like Neural Networks. By employing hyperparameter tuning with RandomizedSearchCV, we further optimized the XGBoost model, achieving strong performance metrics and insights into the interactions between environmental variables and microbial species.
 ## Improvements
 The results demonstrate the potential for leveraging predictive modeling to better understand how environmental factors influence microbial populations.
-We could have improved our approach by incorporating additional environmental factors, such as climate or soil nutrient data, to provide a more comprehensive analysis. Using a more systematic feature selection process could have enhanced model interpretability and reduced computational overhead. Exploring advanced techniques, such as stacking models or gradient-boosted random forests, might have further improved performance. Additionally, validating the model on independent datasets would have tested its generalizability and real-world applicability. These refinements could have made our analysis more robust and impactful.
+We could have improved our approach by if we additional environmental factors, such as climate or soil nutrient data, to provide a more comprehensive analysis. Using a more systematic feature selection process could have enhanced model interpretability and reduced computational overhead. Exploring advanced techniques, such as stacking models or gradient-boosted random forests, might have further improved performance. Additionally, validating the model on independent datasets would have tested its generalizability and real-world applicability. These refinements could have made our analysis more robust and impactful.
 
