@@ -3,28 +3,23 @@ PYTHON = python3
 PIP = $(PYTHON) -m pip
 VENV_DIR = venv
 REQUIREMENTS = requirements.txt
-NOTEBOOK = pipeline.ipynb
 APP_SCRIPT = src/App.py
+PIPELINE_NOTEBOOK = main_pipeline.ipynb
 
 # Targets
-.PHONY: all setup run-notebook run-app clean
+.PHONY: all install run-app clean
 
 # Default target
-all: setup run-notebook
+all: install run
 
-# Setup virtual environment and install dependencies
-setup:
+# install virtual environment and install dependencies
+install:
 	$(PYTHON) -m venv $(VENV_DIR)
 	$(VENV_DIR)/bin/$(PIP) install -U pip
 	$(VENV_DIR)/bin/$(PIP) install -r $(REQUIREMENTS)
 
-# Run the Jupyter Notebook
-run-notebook:
-	$(VENV_DIR)/bin/jupyter notebook $(NOTEBOOK)
-
-# Run the Flask application
-run-app:
-	$(VENV_DIR)/bin/$(PYTHON) $(APP_SCRIPT)
+run:
+	$(VENV_DIR)/bin/jupyter nbconvert --to notebook --execute $(PIPELINE_NOTEBOOK) --output $(PIPELINE_NOTEBOOK)
 
 # Clean up the virtual environment and other files
 clean:

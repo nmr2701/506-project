@@ -1,11 +1,8 @@
 pandas
 numpy
 matplotlib
-scikit-learn
+scikit-learn==1.5.2
 xgboost
+jupyter
 Flask==2.2.5
-numpy==1.26.0
-scikit-learn==1.4.1
-xgboost==1.7.6
 keras==2.14.0
-tensorflow==2.14.0
