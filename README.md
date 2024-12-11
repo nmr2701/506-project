@@ -3,8 +3,7 @@
 Code (instructions, dependencies, reproducibility, tests etc)
 1) git clone (https://github.com/nmr2701/506-project)
 2) install dependencies: make install
-3) download datasets into the data directory:
-4) run the entire main pipeline.ipynb to see data cleaning and model creation as well as visuals with make run 
+3) run the entire main pipeline.ipynb to see data cleaning and model creation as well as visuals with make run 
 
   (abundance data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/species_abundance_filt.csv
   (organism data) https://github.com/zoey-rw/soil_microbe_GEMs/blob/master/comets_shinyapp_example/intermediate_data/organism_data_to_subset.csv
